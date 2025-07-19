@@ -51,4 +51,28 @@ image6 = Image.open(positive_files[2])
 plt.imshow(image6)
 plt.title("3rd Image With Cracks")
 plt.show()
-
+number_of_samples = len(positive_files) + len(negative_files)
+Y=torch.zeros([number_of_samples])
+Y=Y.type(torch.LongTensor)
+Y.type()
+all_files = [None] * number_of_samples
+all_files[::2] = positive_files
+all_files[1::2] = negative_files
+all_files[:4]
+for y,file in zip(Y, all_files[0:4]):
+    plt.imshow(Image.open(file))
+    plt.title("y="+str(y.item()))
+    plt.show()
+train = False
+if train:
+    all_files = all_files[0:30000]
+    Y = Y[0:30000]
+else:
+    all_files = all_files[30000:]
+    Y = Y[30000:]
+for i in range(4):
+    image = Image.open(all_files[i])
+    plt.imshow(image)
+    plt.title(f"Image {i+1} - Label: {Y[i].item()}")
+    plt.axis('off')
+    plt.show()
