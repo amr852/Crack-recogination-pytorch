@@ -13,7 +13,7 @@ directory="/resources/data"
 negative='Negative'
 negative_file_path=os.path.join(directory,negative)
 negative_file_path
- os.listdir(negative_file_path)[0:3]
+os.listdir(negative_file_path)[0:3]
 [os.path.join(negative_file_path,file) for file in  os.listdir(negative_file_path)][0:3]
 print("test.jpg".endswith(".jpg"))
 print("test.mpg".endswith(".jpg"))
